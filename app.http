@@ -1,0 +1,614 @@
+###
+GET http://localhost:5000/api/users
+
+### register user
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+{
+
+    "Username": "titus3" ,
+    "Email": "Titoh@gmail.com" ,
+    "Password": "Titoh1234@#",
+    "TagName": "@tito",
+    "Location": "Nyeri"
+}
+
+### Login user
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "Email": "titus3@gmail.com",
+    "Password": "123456@Tk"
+}
+
+
+### update user
+PUT http://localhost:5000/api/users/update/1d3d8583-88de-4a9f-b750-ea65474a3809
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiIxZDNkODU4My04OGRlLTRhOWYtYjc1MC1lYTY1NDc0YTM4MDkiLCJQYXNzd29yZCI6IiQyYiQwOCR0TXVZMjBZaERvNzN3TmtPT1N1LjllRXZmY2pLNzEzWnlCTDdKYU0wYmZRVkRTZVNxSE1MSyIsIkVtYWlsIjoidGl0dXMzQGdtYWlsLmNvbSIsImlhdCI6MTcwODk3NzY3NCwiZXhwIjoxNzA5MDY0MDc0fQ.pBE7xA_6CPnuTVTXYENwAruzraBeZNB2jyaYMzSmxys
+
+{
+    "Username":"tito4" ,
+    "TagName":"@tito4",
+    "Location":"Nyeri2",
+    "company_name":"Jitu",
+    "website_link":"https://www.instagram.com/",
+    "profileImage":"https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=256"
+}
+
+
+### update the user password
+PATCH http://localhost:5000/api/users/patch/
+Content-Type: application/json
+
+
+{
+    "Password": "123456@Ia"
+}
+
+### Fetching/getting all users
+GET http://localhost:5000/api/users
+
+
+### Fetching/getting all users
+GET http://localhost:5000/api/users/nonfriend
+### Fetching/getting single user
+GET http://localhost:5000/api/users/single/0bb168a7-6e84-402d-b964-97cd852085a7
+
+
+### Deleting a single user
+DELETE  http://localhost:5000/api/users/delete/0bb168a7-6e84-402d-b964-97cd852085a7
+
+
+
+//Posts
+### Create a new post
+POST http://localhost:5000/api/posts
+content-Type: application/json
+
+# {
+  # "UserID": "c9cdc0b9-7628-4d7a-85c2-c125a27388c8",
+  # "content": "This is a new post by Mike.",
+  # "likes": 18,e
+  # "comments": 10
+# }
+
+{
+  "UserID": "4aa6e9c8-e461-47b2-bb77-dc955093b3d8",
+  "content": "Testing likes functionality",
+  "PhotoURL": "testing",
+  "VideoURL":"Testing"
+}
+
+### Fetch all posts
+GET http://localhost:5000/api/posts
+
+### Fetch a post by post id
+GET http://localhost:5000/api/posts/7b992330-4c33-455a-838c-be27cd8203d0
+
+### Fetch a post and user by user id ///
+GET http://localhost:5000/api/posts/uid/bc881a99-5608-4955-87c4-a25a91ca380b
+
+### Update a post by post ID
+PUT http://localhost:5000/api/posts/f81299f4-ea3d-44d8-a634-2bbf4c53cf66
+Content-Type: application/json
+
+{
+  "UserID": "c9cdc0b9-7628-4d7a-85c2-c125a27388c8",
+  "content": "This is an updated post by Jane."
+}
+
+### Delete a post by post ID
+DELETE  http://localhost:5000/api/posts/f81299f4-ea3d-44d8-a634-2bbf4c53cf66
+
+
+
+##****************************************************FRIENDSHIP**************************************************************##
+
+### Become friends
+POST http://localhost:5000/api/friendships
+Content-Type: application/json
+
+{
+    "User1ID": "1" ,
+    "User2ID": "3"
+}
+
+        
+### updating a single friendship
+PATCH http://localhost:5000/api/friendships/patch/96e7428c-4de7-478e-884e-9e3bef8cad5a
+Content-Type: application/json
+
+{
+
+}
+
+
+### Fetching/getting all friends
+GET http://localhost:5000/api/friendships/
+
+
+### Fetching/getting all individual user friends
+GET http://localhost:5000/api/friendships/user/1d3d8583-88de-4a9f-b750-ea65474a3809
+
+
+### Fetching/getting single friendship
+GET http://localhost:5000/api/friendships/single/96e7428c-4de7-478e-884e-9e3bef8cad5a
+
+
+### Deleting a single friend
+DELETE  http://localhost:5000/api/friendships/delete/9d11d1a9-d0bd-43fa-87d4-c6dd279b9686/
+
+
+
+##****************************************************Notifications**************************************************************##
+
+
+### Fetching/getting all notifications
+GET http://localhost:5000/api/notifications/
+
+### Fetching/getting all individual user notifications
+GET http://localhost:5000/api/notifications/user/6
+
+### Fetching/getting all individual user notifications
+patch http://localhost:5000/api/notifications/12
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+     "is_read": true 
+}
+### Fetching/getting all individual user notifications
+DELETE http://localhost:5000/api/notifications/1/f7548ef7-eb73-4b5b-8a58-aed672cb5ff3
+
+
+##****************************************************STATUS**************************************************************##
+
+### create a status
+POST http://localhost:5000/api/status
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "UserID": "f8389a42-84cb-46e5-8ff0-7a1028e41b1e" ,
+    "StatusText": "What a bad week" ,
+    "ImagePath": "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" 
+}
+
+### updating a single status
+PUT http://localhost:5000/api/status/update/5092f8e9-25da-46fc-99b0-8efba56f1c5
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+     "Content": "I am loving this" 
+}
+
+
+
+### Fetching/getting all status
+GET http://localhost:5000/api/status/
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+
+### Fetching/getting single comment
+GET http://localhost:5000/api/status/single/a0423f0f-ad07-4f2b-bfa5-a937e44dedf
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+
+### Deleting a single status
+DELETE  http://localhost:5000/api/status/delete/372cb816-52a8-4afb-8b12-37e69bd1ba2a
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+###
+GET http://localhost:5000/api/photos/b284f639-9006-42fa-9d74-6d27466fd075
+###
+GET http://localhost:5000/api/photos/8ba62fcc-d41a-4e0f-9af9-917f0a288143
+
+###
+POST  http://localhost:5000/api/photos/
+Content-Type: application/json 
+
+{
+    "UserID": "8ba62fcc-d41a-4e0f-9af9-917f0a288143",
+    "PhotoURL": "https://example.com/photo.jpg",
+    "UploadDate": "2024-02-26T12:00:00Z"
+
+}
+
+
+
+{
+    "UserID": "",
+    "PhotoURL": "https://example.com/photo.jpg",
+    "UploadDate": "2024-02-26T12:00:00Z"
+
+}
+###
+DELETE   http://localhost:5000/api/photos/3
+
+# getting photos by user id
+###
+GET http://localhost:5400/api/photos/yours/09b49f05-6e14-4a37-a370-5959aa28c5a7
+
+ 
+###
+GET   http://localhost:5000/api/users/09b49f05-6e14-4a37-a370-5959aa28c5a7/events
+
+###
+DELETE  http://localhost:5000/api/events/delete/1ad7aa28-0701-4032-8c89-7c002c2691a9
+
+###
+
+POST  http://localhost:5000/api/events/
+Content-Type: application/json
+
+{ 
+ "EventName": "Event 10",
+  "Description": "Description for Event 10",
+  "EventDate": "2024-02-19T06:19:19.010Z",
+  "Location": "Location 5",
+  "EventPosterURL": "https://s3-alpha-sig.figma.com/img/ab8d/acb0/633924ee90b73f7060bb71aee35f8d27?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hZuWnwOyAkfwGreH1zsGgqRkQw-rU2lWnEj8yLpmfb3jrzy9jYlLtCQ1k-pT64SwArYS3QQArhgEDXlCqfvy~XpF5DQYmccBoCv~aVyCtDk9Qd5X1XBdaP9k2CcVxkvmero03W8S0NyHZI8Tt25hibV3j~KeKt2GTDJM6-YQzS-sdH3a~L30g3jQPhd7ZmakSDDQR8M3lgxGyyvqSZwFrogI1gMfA-9NJSWrm3rkeQt~Ux1f4xxbYMPcAXbuTr3McX59RFiQvBagekXg3GsUYoOmYZNR3nhK5L~B5Xeq6mwkNCacyUu80l~VmIBO9WFwNPCnBXnAFxl5H~igA74aCQ__"
+}
+###
+GET http://localhost:5000/api/eventattendee/230157d5-04f0-4569-a9df-38564422a367
+
+###
+GET http://localhost:5000/api/eventAttendee/09b49f05-6e14-4a37-a370-5959aa28c5a7
+
+
+###
+GET http://localhost:5000/api/eventAttendees/user/09b49f05-6e14-4a37-a370-5959aa28c5a7
+###
+POST http://localhost:5000/api/eventattendee
+Content-Type: application/json
+
+{
+    "EventID": "3aaa10fc-f9e8-433e-8ba7-2a9f0bbda079",
+    "AttendeeID": "09b49f05-6e14-4a37-a370-5959aa28c5a7"
+}
+###
+GET http://localhost:5000/api/event/5c443e9b-b95d-4f2a-bd11-87dbadf6b15c/attendees
+
+###
+DELETE http://localhost:5000/api/eventattendees/delete/1eec64a0-8c12-447c-b493-7e7dc5a609ac/09b49f05-6e14-4a37-a370-5959aa28c5a7
+// COMMENT
+###
+POST http://localhost:5000/api/comments
+Content-Type: application/json
+
+{
+    "UserID": "4aa6e9c8-e461-47b2-bb77-dc955093b3d8" ,
+    "PostID": "17d99549-5564-4efa-9d6a-d0e84e34fa69" ,
+    "Content": "lovely post" 
+}
+
+### //Update a comment
+PUT http://localhost:5000/api/comments/update/b4f307bf-73af-40c2-819d-d9cd2126abb9
+Content-Type: application/json
+Authorization:  JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1ZGEyY2ZkZi1hZjk4LTQ3YmMtOWFmMC04MDM0ZjZiZDNhM2QiLCJVc2VybmFtZSI6Im1hcmsiLCJFbWFpbCI6Im1hcmtAZXhhbXBsZS5jb20iLCJpYXQiOjE3MDg0MTUzNjAsImV4cCI6MTcwODU4ODE2MH0.iLvTiEsdQdpBmoohLIo8cqFQGuJ6N7eKaL6NAdLZ_4c
+
+{
+     "Content": "What a Gwan!!" 
+}
+
+### updating only the content in a comment
+PATCH http://localhost:5000/api/comments/patch/f2b02a65-0d95-495f-b427-ec2fe66468fd
+Content-Type: application/json
+Authorization:  JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1ZGEyY2ZkZi1hZjk4LTQ3YmMtOWFmMC04MDM0ZjZiZDNhM2QiLCJVc2VybmFtZSI6Im1hcmsiLCJFbWFpbCI6Im1hcmtAZXhhbXBsZS5jb20iLCJpYXQiOjE3MDg0MTUzNjAsImV4cCI6MTcwODU4ODE2MH0.iLvTiEsdQdpBmoohLIo8cqFQGuJ6N7eKaL6NAdLZ_4c
+
+{
+     "Content": "Wagwan!"
+}
+
+### Fetching comments
+GET http://localhost:5000/api/comments
+Authorization:  JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1ZGEyY2ZkZi1hZjk4LTQ3YmMtOWFmMC04MDM0ZjZiZDNhM2QiLCJVc2VybmFtZSI6Im1hcmsiLCJFbWFpbCI6Im1hcmtAZXhhbXBsZS5jb20iLCJpYXQiOjE3MDg0MTUzNjAsImV4cCI6MTcwODU4ODE2MH0.iLvTiEsdQdpBmoohLIo8cqFQGuJ6N7eKaL6NAdLZ_4c
+
+
+### Fetching a post comment
+GET http://localhost:5000/api/comments/post/17d99549-5564-4efa-9d6a-d0e84e34fa69
+Authorization:  JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1ZGEyY2ZkZi1hZjk4LTQ3YmMtOWFmMC04MDM0ZjZiZDNhM2QiLCJVc2VybmFtZSI6Im1hcmsiLCJFbWFpbCI6Im1hcmtAZXhhbXBsZS5jb20iLCJpYXQiOjE3MDg0MTUzNjAsImV4cCI6MTcwODU4ODE2MH0.iLvTiEsdQdpBmoohLIo8cqFQGuJ6N7eKaL6NAdLZ_4c
+
+
+### Fetching a single comment
+GET http://localhost:5000/api/comments/single/000653ff-4660-4d1d-b1c8-06962277624a
+Authorization:  JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1ZGEyY2ZkZi1hZjk4LTQ3YmMtOWFmMC04MDM0ZjZiZDNhM2QiLCJVc2VybmFtZSI6Im1hcmsiLCJFbWFpbCI6Im1hcmtAZXhhbXBsZS5jb20iLCJpYXQiOjE3MDg0MTUzNjAsImV4cCI6MTcwODU4ODE2MH0.iLvTiEsdQdpBmoohLIo8cqFQGuJ6N7eKaL6NAdLZ_4c
+
+### Deleting a single comment
+DELETE  http://localhost:5000/api/comments/delete/000653ff-4660-4d1d-b1c8-06962277624a
+Authorization:  JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1ZGEyY2ZkZi1hZjk4LTQ3YmMtOWFmMC04MDM0ZjZiZDNhM2QiLCJVc2VybmFtZSI6Im1hcmsiLCJFbWFpbCI6Im1hcmtAZXhhbXBsZS5jb20iLCJpYXQiOjE3MDg0MTUzNjAsImV4cCI6MTcwODU4ODE2MH0.iLvTiEsdQdpBmoohLIo8cqFQGuJ6N7eKaL6NAdLZ_4c
+
+### 
+POST  http://localhost:5000/api/photocomments
+Content-Type: application/json
+
+
+
+##****************************************************CHATS**************************************************************##
+
+### create a message
+POST http://localhost:5000/api/chats
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "SenderID": "2f5ed619-d30c-4b37-9016-8ab1807ab145" ,
+    "ReceiverID": "c65b31ba-e703-425a-8ecb-dbdd11bc8e60" 
+}
+
+
+### Fetching/getting all chats
+GET http://localhost:5000/api/chats
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+### Fetching/getting all chats
+GET http://localhost:5000/api/chats/user/2f5ed619-d30c-4b37-9016-8ab1807ab145
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+### Fetching/getting users chats
+GET http://localhost:5000/api/chats/user/2f5ed619-d30c-4b37-9016-8ab1807ab145/c65b31ba-e703-425a-8ecb-dbdd11bc8e60
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+### Fetching/getting single message
+GET http://localhost:5000/api/chats/single/da549edd-471a-4e51-ad26-e534ab890ed5
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+
+### Deleting a single message
+DELETE  http://localhost:5000/api/chats/delete/da549edd-471a-4e51-ad26-e534ab890ed5
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV
+
+
+
+##****************************************************MESSAGES**************************************************************##
+
+### create a message
+POST http://localhost:5000/api/messages
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "SenderID": "2f5ed619-d30c-4b37-9016-8ab1807ab145" ,
+    "ChatID": "98c261cd-1c41-4c60-98ae-6aabed5c56c6" ,
+    "Content": "will work on this"
+}
+
+### updating a single message
+PUT http://localhost:5500/api/messages/update/288d9bb4-06d9-4ebf-a05d-09098f3af541
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "Content": "Sorry i mean am in Love with Your cloth"
+}
+
+
+
+### Fetching/getting all messages
+GET http://localhost:5000/api/messages
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+### Fetching/getting all messages
+GET http://localhost:5000/api/messages/user/c65b31ba-e703-425a-8ecb-dbdd11bc8e60
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+### Fetching/getting users chats
+GET http://localhost:5000/api/messages/user/da549edd-471a-4e51-ad26-e534ab890ed5
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+### Fetching/getting single message
+GET http://localhost:5000/api/messages/single/da549edd-471a-4e51-ad26-e534ab890ed5
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+
+### Deleting a single message
+DELETE  http://localhost:5000/api/messages/delete/da549edd-471a-4e51-ad26-e534ab890ed5
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+##****************************************************GROUPS**************************************************************##
+
+### create a group
+POST http://localhost:5000/api/groups
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmOWJjZTUyZC04YmM5LTRiMWQtODIyOC1jNDYwMWU0MDQ0N2MiLCJQYXNzd29yZCI6IiQyYiQwOCRuZlhHZjlTcTMxZEozcndmYS85VGR1SlZyeWcxYmFtNkgxNHNOdGhJbnozd3NYMGxOb3FVTyIsIkVtYWlsIjoic2ducHNvbHV0aW9uc0BnbWFpbC5jb20iLCJpYXQiOjE3MTIwODcyNzAsImV4cCI6MTcxMjE3MzY3MH0.Lst3eh87mYZS639SM1BvA4rlzuoXLMAQPB8nR-cfodg
+
+{  "GroupName": "Group B" ,
+    "CreatedByID": "f9bce52d-8bc9-4b1d-8228-c4601e40447c" ,
+    "Description": "This is one of the best groups", 
+    "group_image": "wonderfull lovely" 
+}
+
+### updating a single group
+PUT http://localhost:5000/api/groups/update/fb3d48bc-79d4-4c65-a7e4-17dc4719e1b8
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "GroupName": "Group c" ,
+    "Description": "This is one of the best groups"
+}
+
+### updating only the text
+PATCH http://localhost:5000/api/groups/patch/77b1ee5e-f71e-42ba-9be8-7c03e64aa33ee
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "GroupName": "Group B" 
+}
+
+
+
+### Fetching/getting all groups
+GET http://localhost:5000/api/groups/
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+### Request // order todos asc or desc
+GET http://localhost:5000/api/groups?order=desc 
+
+### Fetching/getting single group
+GET http://localhost:5000/api/groups/single/304d4c65-8b07-42b8-9ef5-a073b4ac49a9
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+### Deleting a single group
+DELETE  http://localhost:5000/api/groups/delete/32cefb0e-3171-4906-a478-654d708bb758
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+
+
+##****************************************************GROUPSMEMBERS**************************************************************##
+
+
+### create a GROUPSMEMBERS
+POST http://localhost:5000/api/members
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "GroupID": "ed60b90d-1ff5-43a7-a01d-246f15b1dc17" ,
+    "MemberID": "f7548ef7-eb73-4b5b-8a58-aed672cb5ff3" 
+}
+
+
+
+### Fetching/getting all groupsmembers based on the groupid
+GET http://localhost:5000/api/members/1af048b9-7b4e-4f3a-90ee-d3feffd14cb0
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+
+### Fetching/getting single group member
+GET http://localhost:5000/api/members/single/f7548ef7-eb73-4b5b-8a58-aed672cb5ff3
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+### Deleting a single group
+DELETE  http://localhost:5000/api/members/delete/f7548ef7-eb73-4b5b-8a58-aed672cb5ff3
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{   
+    
+    "UserID": "ee5d34e9-5333-41e8-95fd-1353a7bda7d5" ,
+    "PhotoID": "7b992330-4c33-455a-838c-be27cd8203d0" ,
+    "Content": "Another one!!" 
+}
+###
+POST  http://localhost:5000/api/photocomments
+
+###
+GET  http://localhost:5000/api/photocomments/7b992330-4c33-455a-838c-be27cd8203d0
+
+
+### Create a like
+POST  http://localhost:5000/api/likes 
+Content-Type: application/json
+
+{   
+    "UserID": "bc881a99-5608-4955-87c4-a25a91ca380b" ,
+    "post_id": "020426ff-16e5-440c-8755-19e5e83d5960"
+}
+
+### Get all likes 
+###
+GET http://localhost:5000/api/likes
+
+
+### Get a like by postid
+GET http://localhost:5000/api/likes/pid/
+
+//Get a like by userID
+###
+
+GET http://localhost:5000/api/likes/uid/
+
+GET http://localhost:5000/api/likes/uid/bc881a99-5608-4955-87c4-a25a91ca380b
+
+//Delete a like by
+###
+DELETE  http://localhost:5000/api/likes/bc881a99-5608-4955-87c4-a25a91ca380b
+
+
+
+
+#  GroupID,description,activity_photo,UploadedByID
+
+
+ 
+##****************************************************Single GROUP**************************************************************##
+
+### create a group
+POST http://localhost:5000/api/groupposts/
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+{
+    "GroupID": "304d4c65-8b07-42b8-9ef5-a073b4ac49a9" ,
+    "UploadedByID": "2f5ed619-d30c-4b37-9016-8ab1807ab145" ,
+    "description": "This is one of the best groups", 
+    "activity_photo": "https://cdn.pixabay.com/photo/2014/08/14/10/38/software-417880_1280.jpg" 
+}
+
+
+
+
+### Fetching/getting all group activity
+GET http://localhost:5000/api/groupposts?order=desc 
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+### Fetching/getting single group activities
+GET http://localhost:5000/api/groupposts/304d4c65-8b07-42b8-9ef5-a073b4ac49a9
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
+
+//Videos crud endpoints
+### 
+POST http://localhost:5000/api/video
+content-Type: application/json
+
+{
+  "UserID": "bc881a99-5608-4955-87c4-a25a91ca380b",
+  "videoURL": "https://www.shutterstock.com/shutterstock/videos/1072002829/preview/stock-footage-excited-young-female-is-sitting-on-backseat-of-a-car-commuting-home-at-night-looking-out-of-the.webm",
+  "videoCaption": "bOOOOM!"
+}
+
+//Fetch all videos
+###
+GET http://localhost:5000/api/video
+
+//Fetch video by vid
+###
+GET http://localhost:5000/api/video/vid/3a7c2a36-80dd-4639-b3ed-8505a34b4293
+
+//Fetch video by uid
+###
+GET http://localhost:5000/api/video/uid/bc881a99-5608-4955-87c4-a25a91ca380b
+
+//Delete video by vid
+###
+DELETE  http://localhost:5000/api/video/vid/22bf5e47-f7a2-4ac0-b2e3-408cbb2ead41
+
+//Categories
+###
+POST http://localhost:5000/api/category
+content-Type: application/json
+
+{
+  "categoryName": "New Year",
+  "previewURL":"https://www.shutterstock.com/shutterstock/videos/1107158613/preview/stock-footage-happy-new-year-animation.webm"
+}
+
+###
+GET  http://localhost:5000/api/category
+
+###
+DELETE  http://localhost:5000/api/category/a458a994-124d-4b5d-9835-9a1e4a0acef9
