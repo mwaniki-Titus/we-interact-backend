@@ -291,8 +291,7 @@ Content-Type: application/json
 ### //Update a comment
 PUT http://localhost:5000/api/comments/update/b4f307bf-73af-40c2-819d-d9cd2126abb9
 Content-Type: application/json
-Authorization:  JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1ZGEyY2ZkZi1hZjk4LTQ3YmMtOWFmMC04MDM0ZjZiZDNhM2QiLCJVc2VybmFtZSI6Im1hcmsiLCJFbWFpbCI6Im1hcmtAZXhhbXBsZS5jb20iLCJpYXQiOjE3MDg0MTUzNjAsImV4cCI6MTcwODU4ODE2MH0.iLvTiEsdQdpBmoohLIo8cqFQGuJ6N7eKaL6NAdLZ_4c
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJhNTg5YjBiYS1kZDgzLTRhNDItODI5ZC1lMzcyY2U1ZDNhMzgiLCJQYXNzd29yZCI6IiQyYiQwOCRsODhoTGY3M3VvTDNBTmVXV21KV3N1YnVjWi93NmhkbWpPaExteG1lRG81N3dSbHlXcnoyRyIsIkVtYWlsIjoibXdhbGltdUBnbWFpbC5jb20iLCJpYXQiOjE3MTI3MjA3MTUsImV4cCI6MTcxMjgwNzExNX0.n7L0NZ9ysb3tB1-fqRUW77Q7XrpyDx3QdsYzmPKE39g
 {
      "Content": "What a Gwan!!" 
 }
@@ -550,8 +549,7 @@ DELETE  http://localhost:5000/api/likes/bc881a99-5608-4955-87c4-a25a91ca380b
 ### create a group
 POST http://localhost:5000/api/groupposts/
 Content-Type: application/json
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1MjAyNzE0Yy1mYzRjLTQ2NTEtYjdiZi1hZDUzYTVkOTFlZjEiLCJQYXNzd29yZCI6IiQyYiQwOCRsLldIc0JxbDM2d1BPcklCS2d0R2wuY29vL3dRQ2IzRnNYMGdvaUpnQUE1SW1pRFVBaDc4TyIsIkVtYWlsIjoidGVjaG5vbGN5YmVyMUBnbWFpbC5jb20iLCJpYXQiOjE3MDgzNTA2NDksImV4cCI6MTcwODQzNzA0OX0.a1hyNtpi0LUGWO1pn8T73IrbgQjUgl3fltPkCbWt9XE
-
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJhNTg5YjBiYS1kZDgzLTRhNDItODI5ZC1lMzcyY2U1ZDNhMzgiLCJQYXNzd29yZCI6IiQyYiQwOCRsODhoTGY3M3VvTDNBTmVXV21KV3N1YnVjWi93NmhkbWpPaExteG1lRG81N3dSbHlXcnoyRyIsIkVtYWlsIjoibXdhbGltdUBnbWFpbC5jb20iLCJpYXQiOjE3MTI3MjA3MTUsImV4cCI6MTcxMjgwNzExNX0.n7L0NZ9ysb3tB1-fqRUW77Q7XrpyDx3QdsYzmPKE39g
 {
     "GroupID": "304d4c65-8b07-42b8-9ef5-a073b4ac49a9" ,
     "UploadedByID": "2f5ed619-d30c-4b37-9016-8ab1807ab145" ,

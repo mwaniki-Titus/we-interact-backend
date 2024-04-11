@@ -28,7 +28,7 @@ dotenv.config()
 
 const app=express() 
 var corsOptions = {
-    origin: 'http://localhost:5174',
+    origin: 'http://localhost:5173',
     optionsSuccessStatus: 200 
 }
 const PORT=process.env.PORT || 3500
